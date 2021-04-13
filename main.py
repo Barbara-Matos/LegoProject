@@ -3,21 +3,16 @@ import numpy as np
 import imutils
 
 
-def rescale_frame(frame, percent=75):
+def rescale_frame(frame, percent):
     width = int(frame.shape[1] * percent / 100)
     height = int(frame.shape[0] * percent / 100)
     dim = (width, height)
     return cv2.resize(frame, dim, interpolation=cv2.INTER_AREA)
 
-
-# cap= cv2.VideoCapture('http://192.168.1.3:8080/video')
-frame = cv2.imread("prof4.jpeg")
-# frame.set(3,640)
-# frame.set(4,480)
-# while True:
-# _,frame = cap.read()
+frame = cv2.imread("prof2.jpeg")               # imagem
 hsv = cv2.cvtColor(frame, cv2.COLOR_BGR2HSV)
-# gama de cores
+
+# Gama de cores
 lower_yellow = np.array([16, 68, 132])  # 120
 upper_yellow = np.array([32, 255, 255])
 
@@ -106,7 +101,7 @@ for c in cnts4:
         cv2.circle(frame, (cx, cy), 7, (255, 255, 255), -1)
         cv2.putText(frame, "Blue", (cx - 20, cy - 20), cv2.FONT_HERSHEY_SIMPLEX, 2.5, (255, 255, 255), 3)
 
-newframe = rescale_frame(frame, percent=30)
+newframe = rescale_frame(frame, 18)      # MUDAR O VALOR PARA AJUSTAR O TAMANHO DA IMAGEM
 cv2.imshow("result", newframe)
 k = cv2.waitKey()
 # if k == 27:
