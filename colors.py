@@ -21,7 +21,7 @@ cv2.createTrackbar("VALUE Min", "Range HSV", 0, 255, empty)
 cv2.createTrackbar("VALUE Max", "Range HSV", 255, 255, empty)
 
 # read image
-image = cv2.imread("prof4.jpeg")
+image = cv2.imread("prof2.jpeg")
 
 while True:
         # get value from trackbar
