@@ -21,7 +21,7 @@ cv2.createTrackbar("VALUE Min", "Range HSV", 0, 255, empty)
 cv2.createTrackbar("VALUE Max", "Range HSV", 255, 255, empty)
 
 # read image
-image = cv2.imread("prof2.jpeg")
+image = cv2.imread("prof4.jpeg")
 
 while True:
         # get value from trackbar
@@ -45,14 +45,14 @@ while True:
         # bitwise AND mask and original image
         bitwise = cv2.bitwise_and(image, image, mask=thresh)
         newframe = rescale_frame(bitwise, 18)
-        cv2.imshow("Original Image", image)
-        cv2.imshow("Thresholded", thresh)
+        #cv2.imshow("Original Image", image)
+        #cv2.imshow("Thresholded", thresh)
         cv2.imshow("Bitwise", newframe)
 
         k = cv2.waitKey(1) & 0xFF
-        if k == ord('m'):
-                mode = not mode
-        elif k == 27:
-                break
+        #if k == ord('m'):
+        #        mode = not mode
+        #elif k == 27:
+        #        break
 
 cv2.destroyAllWindows()
