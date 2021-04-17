@@ -44,7 +44,7 @@ while True:
 
         # bitwise AND mask and original image
         bitwise = cv2.bitwise_and(image, image, mask=thresh)
-        newframe = rescale_frame(bitwise, 18)
+        newframe = rescale_frame(bitwise, 30)
         #cv2.imshow("Original Image", image)
         #cv2.imshow("Thresholded", thresh)
         cv2.imshow("Bitwise", newframe)

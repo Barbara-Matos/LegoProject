@@ -9,12 +9,15 @@ def rescale_frame(frame, percent):
     dim = (width, height)
     return cv2.resize(frame, dim, interpolation=cv2.INTER_AREA)
 
-frame = cv2.imread("prof4.jpeg")               # imagem
+frame = cv2.imread("prof5.jpeg")               # imagem
 hsv = cv2.cvtColor(frame, cv2.COLOR_BGR2HSV)
 
 # Gama de cores
 lower_yellow = np.array([16, 68, 132])  # 120
 upper_yellow = np.array([32, 255, 255])
+
+lower_orange = np.array([5, 153, 80])  # 120
+upper_orange = np.array([15, 255, 255])
 
 lower_green = np.array([33, 64, 19])
 upper_green = np.array([91, 255, 255])
@@ -26,9 +29,9 @@ lower_red1 = np.array([167, 118, 20])      # 120
 upper_red1 = np.array([180, 255, 255])
 
 lower_blue = np.array([104, 172, 100])
-upper_blue = np.array([121, 255, 255])
+upper_blue = np.array([118, 255, 255])
 
-lower_pink = np.array([138, 59, 71])
+lower_pink = np.array([134, 59, 71])
 upper_pink = np.array([163, 255, 255])
 
 lower_black1 = np.array([103, 0, 0])
@@ -41,7 +44,7 @@ lower_gray = np.array([0, 0, 20])
 upper_gray = np.array([0, 0, 113])
 
 lower_gray1 = np.array([104, 63, 72])
-upper_gray1 = np.array([114, 100, 184])
+upper_gray1 = np.array([114, 100, 172])#184
 
 lower_gray2 = np.array([104, 63, 53])   # 105
 upper_gray2 = np.array([114, 174, 167])
@@ -69,6 +72,7 @@ mask7 = cv2.inRange(hsv, lower_black, upper_black)
 mask71 = cv2.inRange(hsv, lower_black1, upper_black1)
 maskBlack = mask7 | mask71
 
+mask8 = cv2.inRange(hsv, lower_orange, upper_orange)
 
 # find contourns
 cnts1 = cv2.findContours(mask1, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
@@ -92,10 +96,13 @@ cnts6 = imutils.grab_contours(cnts6)
 cnts7 = cv2.findContours(maskBlack, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
 cnts7 = imutils.grab_contours(cnts7)
 
+cnts8 = cv2.findContours(mask8, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
+cnts8 = imutils.grab_contours(cnts8)
+
 for c in cnts1:
     area1 = cv2.contourArea(c)
     if area1 > 10000:
-        approx = cv2.approxPolyDP(c, 0.01 * cv2.arcLength(c, True), True)  # o contorno sair melhor
+        approx = cv2.approxPolyDP(c, 0.02 * cv2.arcLength(c, True), True)  # o contorno sair melhor
         cv2.drawContours(frame, [approx], -1, (0, 255, 0), 3)
         M = cv2.moments(c)
 
@@ -107,7 +114,7 @@ for c in cnts1:
 for c in cnts2:
     area2 = cv2.contourArea(c)
     if area2 > 7500:
-        approx = cv2.approxPolyDP(c, 0.01 * cv2.arcLength(c, True), True)
+        approx = cv2.approxPolyDP(c, 0.02 * cv2.arcLength(c, True), True)
         cv2.drawContours(frame, [approx], -1, (0, 255, 0), 3)
         M = cv2.moments(c)
 
@@ -132,7 +139,7 @@ for c in reds:
 for c in cnts4:
     area4 = cv2.contourArea(c)
     if area4 > 7500:
-        approx = cv2.approxPolyDP(c, 0.01 * cv2.arcLength(c, True), True)
+        approx = cv2.approxPolyDP(c, 0.02 * cv2.arcLength(c, True), True)
         cv2.drawContours(frame, [approx], -1, (0, 255, 0), 3)
         M = cv2.moments(c)
 
@@ -146,7 +153,7 @@ for c in cnts4:
 for c in cnts5:
     area5 = cv2.contourArea(c)
     if area5 > 7500:
-        approx = cv2.approxPolyDP(c, 0.01 * cv2.arcLength(c, True), True)
+        approx = cv2.approxPolyDP(c, 0.02 * cv2.arcLength(c, True), True)
         cv2.drawContours(frame, [approx], -1, (0, 255, 0), 3)
         M = cv2.moments(c)
 
@@ -158,7 +165,7 @@ for c in cnts5:
 for c in cnts6:
     area6 = cv2.contourArea(c)
     if area6 > 30000:
-        approx = cv2.approxPolyDP(c, 0.01 * cv2.arcLength(c, True), True)
+        approx = cv2.approxPolyDP(c, 0.02 * cv2.arcLength(c, True), True)
         cv2.drawContours(frame, [approx], -1, (0, 255, 0), 3)
         M = cv2.moments(c)
 
@@ -170,7 +177,7 @@ for c in cnts6:
 for c in cnts7:
     area7 = cv2.contourArea(c)
     if area7 > 27000:
-        approx = cv2.approxPolyDP(c, 0.01 * cv2.arcLength(c, True), True)
+        approx = cv2.approxPolyDP(c, 0.02 * cv2.arcLength(c, True), True)
         cv2.drawContours(frame, [approx], -1, (0, 255, 0), 3)
         M = cv2.moments(c)
 
@@ -179,6 +186,17 @@ for c in cnts7:
         cv2.circle(frame, (cx, cy), 7, (255, 255, 255), -1)
         cv2.putText(frame, "Black", (cx - 20, cy - 20), cv2.FONT_HERSHEY_SIMPLEX, 2.5, (255, 255, 255), 3)
 
+for c in cnts8:
+    area8 = cv2.contourArea(c)
+    if area8 > 27000:
+        approx = cv2.approxPolyDP(c, 0.02 * cv2.arcLength(c, True), True)
+        cv2.drawContours(frame, [approx], -1, (0, 255, 0), 3)
+        M = cv2.moments(c)
+
+        cx = int(M["m10"] / M["m00"])
+        cy = int(M["m01"] / M["m00"])
+        cv2.circle(frame, (cx, cy), 7, (255, 255, 255), -1)
+        cv2.putText(frame, "Orange", (cx - 20, cy - 20), cv2.FONT_HERSHEY_SIMPLEX, 2.5, (255, 255, 255), 3)
 
 newframe = rescale_frame(frame, 18)      # MUDAR O VALOR PARA AJUSTAR O TAMANHO DA IMAGEM
 cv2.imshow("result", newframe)
