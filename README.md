@@ -61,6 +61,6 @@ On the first one, tracking1.py, you need to press S button on keyboard in order 
 On the second one, tracking2.py, the program detects the lego pieces by colour and does the tracking of them. In this program theres an issue with the identifiers of the pieces that makes impossible to count them correctly.  
 
 ###### tracking3.py
-On the third one, tracking3.py, 
+On the third one, tracking3.py, in this program it's chosen a small ROI where the light conditions doesn't interfere and the tracking is made on that region. The pieces' identifiers are applied correctly, but there isn't color detection involved on the process. 
 
 
