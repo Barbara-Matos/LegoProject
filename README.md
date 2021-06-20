@@ -20,7 +20,7 @@ In order to run the project on your own device you need to follow the following 
 
 - Clone our repository to your computer
 ```
-git clone https://github.com/Barbara-Matos/LegoProject.git
+$ git clone https://github.com/Barbara-Matos/LegoProject.git
 ```
 - Open your terminal and go
 - Run the following commands on your terminal
@@ -28,11 +28,12 @@ git clone https://github.com/Barbara-Matos/LegoProject.git
 $ sudo apt-get install python3-opencv
 $ pip3 install numpy
 $ pip3 install imutils
-$ pip3 math
+$ pip3 install math
+$ pip3 install glob
 ```
 - Now run the following command replacing "program-name.py" with the name of the program you want to start running
 ```
-python3 program-name.py
+$ python3 program-name.py
 ```
 
 <a name="objectdetectionRT"></a>
