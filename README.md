@@ -8,9 +8,8 @@ It will also exist a tracking feature, but this one it will only be aplied to th
 
 ## Table of Contents
 1. [Installation requires libraries](#reqlib)  
-2. [Object detection on images of Lego pieces](#objectdetection)
-3. [Real time object detection of Lego pieces](#objectdetectionRT)
-4. [Object tracking on video](#objecttracking)
+2. [Real time object detection of Lego pieces](#objectdetectionRT)
+3. [Object tracking on video](#objecttracking)
 
 <a name="reqlib"></a> 
 ## Installation Required Libraries
@@ -36,13 +35,12 @@ $ pip3 math
 python3 program-name.py
 ```
 
-<a name="objectdetection"></a>
-## Object Detection on Images of Lego Pieces
-
-###### 
-
 <a name="objectdetectionRT"></a>
 ## Real Time Object Detection of Lego Pieces 
+
+###### realtime1.py
+
+###### realtime2.py
 
 <a name="objecttracking"></a>
 ## Object Tracking on Video
