@@ -47,7 +47,7 @@ The pieces have to have this caracteristics in order to our program to detect th
 
 Shapes: 2x2 - 2x4 - 2x5 - 2x6 - 4x4 - 4x6 
 
-Colors: Yellow - Orange - Green - Red - Blue
+Colors: Yellow - Orange - Green - Red - Blue - Violet 
 
 <a name="objecttracking"></a>
 ## Object Tracking on Video
