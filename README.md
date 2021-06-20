@@ -22,7 +22,7 @@ In order to run the project on your own device you need to follow the following 
 ```
 $ git clone https://github.com/Barbara-Matos/LegoProject.git
 ```
-- Open your terminal and go
+- Open your terminal and go to the directory where you clone the repository
 - Run the following commands on your terminal
 ```
 $ sudo apt-get install python3-opencv
