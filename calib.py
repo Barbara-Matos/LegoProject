@@ -14,8 +14,8 @@ objpoints = [] # 3d point in real world space
 imgpoints = [] # 2d points in image plane.
 
 camera = cv.VideoCapture(0)
-name = np.array(["f1.png","f2.png","f3.png","f4.png","f5.png","f6.png","f7.png","f8.png","f9.png","f10.png"])
-cal = np.array(["c1.png","c2.png","c3.png","c4.png","c5.png","c6.png","c7.png","c8.png","c9.png","c10.png"])
+name = np.array(["chess1.png","chess2.png","chess3.png"])
+cal = np.array(["calib1.png","calib2.png","calib3.png"])
 
 #save images for calibration
 '''
