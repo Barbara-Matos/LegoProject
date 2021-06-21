@@ -2,7 +2,7 @@
 
 This project consists of using a Raspberry Pi 4 Model B along with a camera in order to detect Lego pieces inside one box with controlled lightning. 
 
-It will also exist a tracking feature, but this one it will only be aplied to the video called 'VideoTracking.mov'.
+It will also exist a tracking feature, but this one it will only be aplied to the video called 'VideoTracking.mov' available here https://drive.google.com/drive/folders/1M1lQPXIULY2Eb2cuxUSmJmiqg5MBvkc6.
 
 
 
